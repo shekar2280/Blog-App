@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./about.module.css";
+import Image from "next/image";
 
 const AboutMe = () => {
   return (
@@ -26,7 +27,9 @@ const AboutMe = () => {
               <li>Next.js</li>
             </ul>
             <ul className={styles.listItems}>
-              <label className={styles.listTitle}>Backend-end Development</label>
+              <label className={styles.listTitle}>
+                Backend-end Development
+              </label>
               <li>Node.js</li>
               <li>Express</li>
             </ul>
@@ -43,9 +46,11 @@ const AboutMe = () => {
           </p>
         </div>
         <div className={styles.image_wrapper}>
-          <img
+          <Image
             src="/team_up.svg"
             alt="Decorative SVG"
+            width={100}
+            height={100}
             className={styles.about_svg}
           />
         </div>
