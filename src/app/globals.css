@@ -1,0 +1,90 @@
+:root{
+    --bg: white;
+    --textColor: black;
+    --softBg: #f0f0f0;
+    --softTextColor: #626262;
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    min-width: 100vw;
+    overflow-x: hidden;
+}
+
+a{
+    color: inherit;
+    text-decoration: none;
+}
+
+.dark{
+  --bg: #0f172a;
+  --textColor: #ddd;
+  --softBg: #1f273a;
+  --softTextColor: #a6a6a6;
+}
+
+.light{
+  --bg: white;
+  --textColor: black;
+  --softBg: #f0f0f0;
+  --softTextColor: #626262;
+}
+
+.container{
+    min-height: 100vh;
+    background-color: var(--bg);
+    color: var(--textColor);
+}
+
+.wrapper {
+  max-width: 1236px;
+  margin: 0 auto; /* Center the wrapper horizontally */
+  /* padding-left: 80px;
+  padding-right: 80px; */
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 1280px) {
+  .wrapper {
+    max-width: 90%;
+    padding-left: 60px;
+    padding-right: 60px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .wrapper {
+    max-width: 90%;
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .wrapper {
+    max-width: 95%;
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .wrapper {
+    max-width: 100%;
+    padding-left: 35px;
+    padding-right: 35px;
+  }
+}
+
+.ql-container{
+  font-size: 28px !important;
+}
+
+.quill > .ql-container > .ql-editor.ql-blank::before{
+  color: #b3b3b1;
+}
