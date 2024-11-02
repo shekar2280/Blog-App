@@ -35,8 +35,8 @@ function Featured() {
       <Image src="/teslabot.avif" alt="Tesla bot Image" fill className={styles.image}/>
       </div>
       <div className={styles.textContainer}>
-      <h1 className={styles.postTitle}>Tesla's Optimus Bot: The Future of Automation is Here!</h1>
-      <p className={styles.postDesc}>Tesla's Optimus Bot revolutionizes automation, merging cutting-edge technology with everyday tasks, empowering humanity for a smarter, more efficient future.</p>
+      <h1 className={styles.postTitle}>Tesla&apos;s Optimus Bot: The Future of Automation is Here!</h1>
+      <p className={styles.postDesc}>Tesla&apos;s Optimus Bot revolutionizes automation, merging cutting-edge technology with everyday tasks, empowering humanity for a smarter, more efficient future.</p>
       <Link href="https://www.thewrap.com/elon-musk-tesla-optimus-robot-explained/">
       <button className={styles.button}>Read More</button>
       </Link>
