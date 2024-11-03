@@ -41,6 +41,11 @@
     gap: 100px;
 }
 
+
+.listItems:hover{
+    color: #4481eb;
+}
+
 .list{
     display: flex;
     flex-direction: column;

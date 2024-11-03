@@ -27,6 +27,7 @@ function WritePage() {
   const [value, setValue] = useState("");
   const [title, setTitle] = useState("");
   const [catSlug, setCatSlug] = useState("");
+  const [uploadSuccess, setUploadSuccess] = useState(false); // New state for upload success
 
   useEffect(() => {
     if (!file) return;
@@ -47,6 +48,8 @@ function WritePage() {
         () => {
           getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
             setMedia(downloadURL);
+            setUploadSuccess(true); 
+            setTimeout(() => setUploadSuccess(false), 3000);
           });
         }
       );
@@ -113,7 +116,7 @@ function WritePage() {
         <option value="food">food</option>
         <option value="culture">culture</option>
         <option value="travel">travel</option>
-        <option value="coding">technology</option>
+        <option value="technology">technology</option>
       </select>
       <div className={styles.editor}>
         <button className={styles.button} onClick={() => setOpen(!open)}>
@@ -149,6 +152,12 @@ function WritePage() {
       <button className={styles.publish} onClick={handleSubmit}>
         Publish
       </button>
+      
+      {uploadSuccess && (
+        <div className={styles.popup}>
+          Image uploaded successfully!
+        </div>
+      )}
     </div>
   );
 }

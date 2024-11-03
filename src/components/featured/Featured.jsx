@@ -27,7 +27,7 @@ function Featured() {
   return (
     <div className={styles.container}>
       <h1 className={styles.title}>
-      <b>Hey, Shekar here!</b> Discover new stories and creative ideas.
+      <b>Unleash Your Imagination : </b> Explore Tales and Ideas Worth Sharing!
       </h1>
       <div className={styles.post}>
       <div className={styles.imgContainer}>
@@ -37,7 +37,7 @@ function Featured() {
       <div className={styles.textContainer}>
       <h1 className={styles.postTitle}>Tesla&apos;s Optimus Bot: The Future of Automation is Here!</h1>
       <p className={styles.postDesc}>Tesla&apos;s Optimus Bot revolutionizes automation, merging cutting-edge technology with everyday tasks, empowering humanity for a smarter, more efficient future.</p>
-      <Link href="https://www.thewrap.com/elon-musk-tesla-optimus-robot-explained/">
+      <Link href="http://localhost:3000/posts/teslas-optimus-bot-the-future-of-automation-is-here">
       <button className={styles.button}>Read More</button>
       </Link>
       </div>

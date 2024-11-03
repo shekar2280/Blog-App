@@ -3,9 +3,22 @@ import styles from "./card.module.css";
 import Image from "next/image";
 import Link from "next/link";
 
-function Card({ key, item }) {
+// Function to truncate text while avoiding cutting words in half
+const truncateText = (text, maxLength) => {
+  if (text.length <= maxLength) return text;
+
+  const trimmedText = text.substring(0, maxLength);
+  const lastSpaceIndex = trimmedText.lastIndexOf(" ");
+
+  // If there's no space found, just return the trimmed text
+  if (lastSpaceIndex === -1) return trimmedText + "...";
+
+  return trimmedText.substring(0, lastSpaceIndex) + "...";
+};
+
+function Card({ item }) {
   return (
-    <div className={styles.container} key={key}>
+    <div className={styles.container}>
       {item.img && (
         <div className={styles.imageContainer}>
           <Image src={item.img} alt="" fill className={styles.image} />
@@ -18,9 +31,9 @@ function Card({ key, item }) {
           </span>
           <span className={styles.category}>{item.catSlug}</span>
           <Link href={`/posts/${item.slug}`}>
-            <h1>{item.title}</h1>
+            <h1 className={styles.title}>{item.title}</h1>
           </Link>
-          <p className={styles.desc}>{item.desc.substring(0, 60)}</p>
+          <p className={styles.desc}>{truncateText(item.desc, 60)}</p>
           <Link href={`/posts/${item.slug}`} className={styles.link}>
             Read More
           </Link>

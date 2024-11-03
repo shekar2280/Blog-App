@@ -20,7 +20,7 @@ function Contact() {
 
     const mailtoLink = `mailto:${encodeURIComponent(recipientEmail)}?subject=Contact%20Us&body=${encodeURIComponent(message)}`;
     window.location.href = mailtoLink;
-    setError(""); // Clear the error message
+    setError("");
   };
 
   const validateEmail = (email) => {
@@ -32,7 +32,6 @@ function Contact() {
     <div className={styles.container}>
       <h1>Contact Us</h1>
       <div className={styles.contentWrapper}>
-        {/* SVG Element */}
         <div className={styles.svgContainer}>
           <svg
             width="400px"

@@ -4,7 +4,7 @@ import { NextResponse } from "next/server";
 
 export const GET = async (req) => {
   const { searchParams } = new URL(req.url);
-  const page = searchParams.get("page");
+  const page = parseInt(searchParams.get("page")) || 1; // Default to page 1
   const cat = searchParams.get("cat");
 
   const POST_PER_PAGE = 4;
@@ -49,9 +49,9 @@ export const POST = async (req) => {
     return NextResponse.json(post, { status: 201 });
   } catch (err) {
     console.error("Error details:", err); // more specific error log
-    return NextResponse.json({ message: "Failed to create post" }, { status: 500 });
+    return NextResponse.json(
+      { message: "Failed to create post" },
+      { status: 500 }
+    );
   }
 };
-
-
-

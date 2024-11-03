@@ -2,7 +2,7 @@ import CardList from '@/components/cardList/CardList'
 import Menu from '@/components/Menu/Menu'
 import React from 'react'
 import styles from "./blogPage.module.css"
-import Pagination from '@/components/pagination/Pagination';
+
 
 function page({ searchParams }) {
   const page = parseInt(searchParams.page) || 1;

@@ -31,24 +31,24 @@ function Footer() {
       <div className={styles.links}>
         <div className={styles.list}>
           <span className={styles.listTitle}>Links</span>
-          <Link href="/">Homepage</Link>
-          <Link href="/">Blog</Link>
-          <Link href="/">About</Link>
-          <Link href="/">Contact</Link>
+          <Link href="/" className={styles.listItems}>Homepage</Link>
+          <Link href="/write" className={styles.listItems}>Write</Link>
+          <Link href="/about" className={styles.listItems}>About</Link>
+          <Link href="/contact" className={styles.listItems}>Contact</Link>
         </div>
         <div className={styles.list}>
           <span className={styles.listTitle}>Tags</span>
-          <Link href="/">Styles</Link>
-          <Link href="/">Fashion</Link>
-          <Link href="/">Technology</Link>
-          <Link href="/">Travel</Link>
+          <Link href="/blog?cat=style" className={styles.listItems}>Styles</Link>
+          <Link href="/blog?cat=fashion" className={styles.listItems}>Fashion</Link>
+          <Link href="/blog?cat=technology" className={styles.listItems}>Technology</Link>
+          <Link href="/blog?cat=travel" className={styles.listItems}>Travel</Link>
         </div>
         <div className={styles.list}>
           <span className={styles.listTitle}>Social</span>
-          <Link href="https://www.linkedin.com/in/t-somashekar/">LinkedIn</Link>
-          <Link href="/">Instagram</Link>
-          <Link href="/">Twitter</Link>
-          <Link href="https://github.com/shekar2280">GitHub</Link>
+          <Link href="https://www.linkedin.com/in/t-somashekar/" className={styles.listItems}>LinkedIn</Link>
+          <Link href="/" className={styles.listItems}>Instagram</Link>
+          <Link href="/" className={styles.listItems}>Twitter</Link>
+          <Link href="https://github.com/shekar2280" className={styles.listItems}>GitHub</Link>
         </div>
       </div>
     </div>

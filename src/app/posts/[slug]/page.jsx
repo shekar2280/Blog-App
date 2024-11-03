@@ -11,6 +11,7 @@ const getData = async (slug) => {
   });
 
   if (!res.ok) {
+    console.error("Fetch failed with status:", res.status);
     throw new Error("Failed to fetch posts");
   }
 

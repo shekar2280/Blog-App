@@ -3,18 +3,24 @@ import { NextResponse } from "next/server";
 
 
 // GET SINGLE POST
-export const GET = async (req, {params}) => {
-
+export const GET = async (req, { params }) => {
   const { slug } = params;
-  
+
   try {
-    const post = await prisma.post.update({
+    const post = await prisma.post.findUnique({
       where: { slug },
-      data: { views: {increment: 1 }},
-      include: {user: true},
+      include: { user: true },
     });
-    
-    
+
+    if (!post) {
+      return NextResponse.json({ message: "Post not found" }, { status: 404 });
+    }
+
+    // Increment view count
+    await prisma.post.update({
+      where: { slug },
+      data: { views: { increment: 1 } },
+    });
 
     return NextResponse.json(post, { status: 200 });
   } catch (err) {
@@ -22,6 +28,7 @@ export const GET = async (req, {params}) => {
     return NextResponse.json({ message: "Something went wrong!" }, { status: 500 });
   }
 };
+
 
 export const POST = async (req) => {
   try {
