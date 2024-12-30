@@ -62,7 +62,7 @@ function WritePage() {
     return <div className={styles.loading}>Loading...</div>;
   }
   if (status === "unauthenticated") {
-    router.push("/"); // Redirects unauthenticated users to the homepage
+    router.push("/"); 
     return null;
   }
 
@@ -93,7 +93,7 @@ function WritePage() {
       if (!res.ok) throw new Error("Failed to submit post");
 
       console.log("Post submitted successfully");
-      router.push("/"); // Redirect after successful publish
+      router.push("/"); 
     } catch (err) {
       console.error("Error submitting post:", err);
     }
