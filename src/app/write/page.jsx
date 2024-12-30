@@ -1,10 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import dynamic from "next/dynamic";
 import styles from "./writePage.module.css";
-import Image from "next/image";
-import ReactQuill from "react-quill";
-import "react-quill/dist/quill.bubble.css";
 import { useRouter } from "next/navigation";
 import { useSession } from "next-auth/react";
 import {
@@ -14,6 +12,11 @@ import {
   getDownloadURL,
 } from "firebase/storage";
 import { app } from "@/utils/firebase";
+
+const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
+import "react-quill/dist/quill.bubble.css";
+
+export const dynamic = "force-dynamic";
 
 const storage = getStorage(app);
 
@@ -27,7 +30,7 @@ function WritePage() {
   const [value, setValue] = useState("");
   const [title, setTitle] = useState("");
   const [catSlug, setCatSlug] = useState("");
-  const [uploadSuccess, setUploadSuccess] = useState(false); // New state for upload success
+  const [uploadSuccess, setUploadSuccess] = useState(false);
 
   useEffect(() => {
     if (!file) return;
@@ -48,7 +51,7 @@ function WritePage() {
         () => {
           getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
             setMedia(downloadURL);
-            setUploadSuccess(true); 
+            setUploadSuccess(true);
             setTimeout(() => setUploadSuccess(false), 3000);
           });
         }
@@ -62,7 +65,7 @@ function WritePage() {
     return <div className={styles.loading}>Loading...</div>;
   }
   if (status === "unauthenticated") {
-    router.push("/"); 
+    router.push("/");
     return null;
   }
 
@@ -93,7 +96,7 @@ function WritePage() {
       if (!res.ok) throw new Error("Failed to submit post");
 
       console.log("Post submitted successfully");
-      router.push("/"); 
+      router.push("/");
     } catch (err) {
       console.error("Error submitting post:", err);
     }
@@ -133,12 +136,6 @@ function WritePage() {
             <label htmlFor="image" className={styles.addButton}>
               <i className="fa-solid fa-image"></i>
             </label>
-            <button className={styles.addButton}>
-              <i className="fa-solid fa-arrow-up-from-bracket"></i>
-            </button>
-            <button className={styles.addButton}>
-              <i className="fa-solid fa-file-video"></i>
-            </button>
           </div>
         )}
         <ReactQuill
@@ -152,11 +149,9 @@ function WritePage() {
       <button className={styles.publish} onClick={handleSubmit}>
         Publish
       </button>
-      
+
       {uploadSuccess && (
-        <div className={styles.popup}>
-          Image uploaded successfully!
-        </div>
+        <div className={styles.popup}>Image uploaded successfully!</div>
       )}
     </div>
   );
